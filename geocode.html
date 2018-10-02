@@ -13,6 +13,8 @@
 
       function geocode(){
         var location = '632 NE Failing Street Portland OR';
+        var latitude;
+        var longitude;
         axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
           params:{
             address:location,
@@ -24,8 +26,11 @@
           console.log(response);
 
           //formatted address
-          console.log(response.data.results[0].geometry.location.lat);
-          console.log(response.data.results[0].geometry.location.lng);
+
+          latitude = response.data.results[0].geometry.location.lat;
+          longitude = response.data.results[0].geometry.location.lng;
+          console.log(latitude);
+          console.log(longitude);
         })
         .catch(function(error){
           alert("Ooops there was an error.");
