@@ -4,38 +4,23 @@
     <meta charset="utf-8">
     <title>Geocode Test</title>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="http://www.webglearth.com/v2/api.js"></script>
+    <script src="scripts/scripts.js"></script>
+    <script src="scripts/geocode.js"></script>
+    <style>
+      html, body{padding: 0; margin: 0;}
+      #earth_div{top: 0; right: 0; bottom: 0; left: 0; position: absolute !important;}
+    </style>
 
   </head>
-  <body>
-    <script>
-    //Call geocode
-      geocode();
+    <body onload="geocode()">
+      <div id="header">
+        <h1>Globe Test</h1>
+      </div>
+      <div id="earth_div"></div>
 
-      function geocode(){
-        var location = '632 NE Failing Street Portland OR';
-        var latitude;
-        var longitude;
-        axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
-          params:{
-            address:location,
-            key:'AIzaSyCS97JDbtkMF07H6OkVPGa3B0S9zQxbYAs'
-          }
-        })
-        .then(function(response){
-          //log full response
-          console.log(response);
-
-          //formatted address
-
-          latitude = response.data.results[0].geometry.location.lat;
-          longitude = response.data.results[0].geometry.location.lng;
-          console.log(latitude);
-          console.log(longitude);
-        })
-        .catch(function(error){
-          alert("Ooops there was an error.");
-        })
-      }
-    </script>
+      <!-- <script>
+        initialize();
+      </script> -->
   </body>
 </html>
