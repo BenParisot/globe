@@ -1,29 +1,23 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <script src="http://www.webglearth.com/v2/api.js"></script>
-    <script>
-      function initialize() {
-        var earth = new WE.map('earth_div');
-        WE.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
-          attribution: '© OpenStreetMap contributors'
-        }).addTo(earth);
-
-        var marker = WE.marker([60.5, 10.1]).addTo(earth);
-        marker.bindPopup("<img src='images/ben.jpg'><h3>Ben</h3><h4>Portland, OR, USA</h4>", {maxWidth: 150, closeButton: true}).openPopup();
-      }
-    </script>
-    <style>
-      html, body{padding: 0; margin: 0;}
-      #earth_div{top: 0; right: 0; bottom: 0; left: 0; position: absolute !important;}
-    </style>
     <link rel="stylesheet" href="css/styles.css">
+    <script src="scripts/jquery-3.2.1.js"></script>
+    <script src="scripts/form.js"></script>
     <title>Test Globe</title>
   </head>
-  <body onload="initialize()">
+  <body>
     <div id="header">
-      <h1>Globe Test</h1>
+      <h1>Globe Entry Form</h1>
     </div>
-    <div id="earth_div"></div>
+    <div>
+      <form id="address">
+        <p>First name:</p>
+        <input type="text" name="firstname" id="firstname"></br>
+        <p>Street Address (<i>e.g., 555 Fake Street, Smallsvile, Oregon, USA</i>)</p>
+        <input type="text" name="fullAddress" id="fullAddress"></br>
+        <button type="submit" id="submit">Submit</button>
+      </form>
+    </div>
   </body>
 </html>
